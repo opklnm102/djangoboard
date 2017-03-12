@@ -17,8 +17,6 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework_swagger.views import get_swagger_view
 
-from post_service import urls
-
 schema_view = get_swagger_view(title='Pastebin API')
 
 urlpatterns = [
@@ -27,5 +25,5 @@ urlpatterns = [
     url(r'^rest-swagger/', schema_view),
 
     url(r'^board/', include('post_service.urls')),
-
+    url(r'^user/', include('user_manager.urls')),
 ]
