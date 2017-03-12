@@ -1,12 +1,13 @@
 from django.contrib import auth
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template import Context
 
-from user_manager.forms import LoginForm
+from user_manager.forms import LoginForm, JoinForm
 
 
-def login(request):
+def login_page(request):
     context = Context({'login_form': LoginForm()})
     # context.update(csrf(request))  # csrf token refresh
 
@@ -33,3 +34,22 @@ def login_validate(request):
         return HttpResponse('로그인 폼이 비정상적입니다.')
 
     return HttpResponse('알 수 없는 오류입니다.')
+
+
+def join_page(request):
+    # POST로 넘어온 데이터에 대해서만 회원가입
+    if request.method == 'POST':
+        form_data = JoinForm(request.POST)
+
+        if form_data.is_valid():
+            username = form_data.cleaned_data['id']
+            password = form_data.cleaned_data['password']
+            User.objects.create_user(username=username, password=password)
+
+            return redirect('/user/login')
+    else:
+        # GET이면 빈 FORM 생성
+        form_data = JoinForm()
+
+    context = Context({'join_form': form_data})
+    return render(request, 'user_manager/join_form.html', context)
