@@ -1,0 +1,37 @@
+form {
+    display: block;
+    padding: 12px;
+}
+
+form div.form_wrapper {
+    margin-bottom: 12px;
+    -webkit-box-shadow: 2px 2px 4px #000;
+    -moz-box-shadow: 2px 2px 4px #000;
+    box-shadow: 2px 2px 4px #000;
+    border: 1px solid #fff;
+}
+
+form div.form_wrapper div.input_form {
+    display: flex;
+    display: -webkit-flex;
+    margin: 12px;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+form div.form_wrapper div.input_form label {
+    margin-right: 12px;
+    min-width: 200px;
+}
+
+form div.form_wrapper div.input_form input {
+    flex: 1;
+    -webkit-flex: 1;
+}
+
+form input[type=submit] {
+    width: 100%;
+    background-color: #ececec;
+    border-radius: 10px;
+    padding: 12px;
+}

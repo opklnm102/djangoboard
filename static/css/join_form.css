@@ -1,0 +1,32 @@
+form {
+    display: block;
+    padding: 12px;
+}
+
+form div.form_wrapper {
+    margin-bottom: 12px;
+    box-shadow: 2px 2px 4px #000;
+    border: 1px solid #fff;
+}
+
+form div.form_wrapper div.input_form {
+    display: flex;
+    margin: 12px;
+    align-items: center;
+}
+
+form div.form_wrapper div.input_form label {
+    margin-right: 12px;
+    min-width: 200px;
+}
+
+form div.form_wrapper div.input_form input {
+    flex: 1;
+}
+
+form input[type=submit] {
+    width: 100%;
+    background-color: #ececec;
+    border-radius: 10px;
+    padding: 12px;
+}

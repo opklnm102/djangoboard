@@ -1,13 +1,27 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Join</title>
+    <link rel="stylesheet" href="{% static 'css/join_form.css' %}">
+
 </head>
 <body>
 <form action="" method="POST">
     {% csrf_token %}
-    {{ join_form }}
+    <div class="input_form">
+        <label for="{{ join_form.id.id_for_label }}">{{ join_form.id.label }}</label>
+        {{ join_form.id }}
+    </div>
+    <div class="input_form">
+        <label for="{{ join_form.password.password_for_label }}">{{ join_form.password.label }}</label>
+        {{ join_form.password }}
+    </div>
+    <div class="input_form">
+        <label for="{{ join_form.password.password_check_for_label }}">{{ join_form.password_check.label }}</label>
+        {{ join_form.password_check }}
+    </div>
     <input type="submit" value="회원가입">
 </form>
 
